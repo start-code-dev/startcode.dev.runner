@@ -9,7 +9,6 @@ use Startcode\Commando\Cli;
 use Startcode\Http\Request;
 use Startcode\Profiler\Ticker\TickerAbstract;
 use Startcode\Runner\Presenter\{ContentType, HeaderAccept, DataTransfer, Formatter\FormatterInterface};
-use Startcode\CleanCore\Application;
 
 abstract class RunnerAbstract implements RunnerInterface
 {
