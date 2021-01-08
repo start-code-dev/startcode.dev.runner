@@ -40,6 +40,7 @@
         "aura/accept"           : "2.2.2",
         "startcode/clean-core"  : "1.*",
         "startcode/http"        : "dev-main",
+        "startcode/logger"      : "dev-main",
         "startcode/profiler"    : "dev-main",
         "startcode/value-object": "dev-main",
         "startcode/commando"    : "1.*",
@@ -49,6 +50,7 @@
     "repositories": [
         {"type": "git", "url": "https://github.com/start-code-dev/startcode.dev.clean-core.git"},
         {"type": "git", "url": "https://github.com/start-code-dev/startcode.dev.http.git"},
+        {"type": "git", "url": "https://github.com/start-code-dev/startcode.dev.logger.git"},
         {"type": "git", "url": "https://github.com/start-code-dev/startcode.dev.profiler.git"},
         {"type": "git", "url": "https://github.com/start-code-dev/startcode.dev.value-object.git"},
         {"type": "git", "url": "https://github.com/start-code-dev/startcode.dev.commando.git"}

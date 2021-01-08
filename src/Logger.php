@@ -3,7 +3,7 @@
 namespace Startcode\Runner;
 
 use Startcode\CleanCore\Application;
-use Logger as LogLogger;
+use Startcode\Logger\Logger as LogLogger;
 use Startcode\Profiler\Data\Request as ProfilerDataRequest;
 use Startcode\Profiler\Data\Response as ProfilerDataResponse;
 
@@ -56,7 +56,7 @@ class Logger
         $loggerData
             ->setApplication($application)
             ->setId($this->uniqueId)
-            ->setParamsToObfuscate([Parameters::CC_NUMBER, Parameters::CC_CVV2, 'image']);
+            ->setParamsToObfuscate(['card_number', 'card_cvv2', 'image']);
         return $loggerData;
     }
 

@@ -2,11 +2,8 @@
 
 namespace Startcode\Runner\Presenter;
 
-use Aura\Accept\Accept;
-use Aura\Accept\AcceptFactory;
-use Aura\Accept\Media\MediaValue;
-use Startcode\CleanCore\Constants\Format;
-use Startcode\CleanCore\Constants\HeaderAccept as HeaderAcceptConst;
+use Aura\Accept\{Accept, AcceptFactory, Media\MediaValue};
+use Startcode\CleanCore\Constants\{Format, HeaderAccept as HeaderAcceptConst};
 
 class HeaderAccept
 {
@@ -56,8 +53,7 @@ class HeaderAccept
     private function available() : array
     {
         return $this->availableContentTypes
-            ? $this->availableContentTypes
-            : [
+            ?: [
                 HeaderAcceptConst::JSON,
                 HeaderAcceptConst::HTML,
             ];

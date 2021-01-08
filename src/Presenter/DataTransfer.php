@@ -10,7 +10,6 @@ use Startcode\CleanCore\Response\Response;
 class DataTransfer
 {
 
-
     private HttpRequest $httpRequest;
 
     private Profiler $profiler;

@@ -4,12 +4,11 @@ namespace Startcode\Runner;
 
 use Startcode\CleanCore\Constants\Http;
 
-use Logger;
+use Startcode\Logger\Logger as LogLogger;
 use Startcode\Commando\Cli;
 use Startcode\Http\Request;
 use Startcode\Profiler\Ticker\TickerAbstract;
-use Startcode\Runner\Presenter\Formatter\FormatterInterface;
-use Startcode\Runner\Presenter\{ContentType, HeaderAccept, DataTransfer};
+use Startcode\Runner\Presenter\{ContentType, HeaderAccept, DataTransfer, Formatter\FormatterInterface};
 use Startcode\CleanCore\Application;
 
 abstract class RunnerAbstract implements RunnerInterface
