@@ -4,61 +4,34 @@ namespace Startcode\Runner;
 
 use Startcode\CleanCore\Constants\Http;
 
-use LogLogger;
-use Cli;
+use Logger;
+use Startcode\Commando\Cli;
 use Startcode\Http\Request;
 use Startcode\Profiler\Ticker\TickerAbstract;
-use Startcode\Runner\Presenter\DataTransfer;
 use Startcode\Runner\Presenter\Formatter\FormatterInterface;
-use Startcode\Runner\Presenter\{ContentType, HeaderAccept};
+use Startcode\Runner\Presenter\{ContentType, HeaderAccept, DataTransfer};
+use Startcode\CleanCore\Application;
 
 abstract class RunnerAbstract implements RunnerInterface
 {
 
-    /**
-     * @var \Startcode\CleanCore\Application
-     */
-    private $application;
+    private Logger $logger;
 
-    /**
-     * @var string
-     */
-    private $applicationMethod;
+    private Profiler $profiler;
 
-    /**
-     * @var Cli
-     */
-    private $commando;
+    private ResponseFormatter $responseFormatter;
 
-    /**
-     * @var HeaderAccept
-     */
-    private $headerAccept;
+    private ?HeaderAccept $headerAccept = null;
 
-    /**
-     * @var Request
-     */
-    private $httpRequest;
+    private ?Application $application = null;
 
-    /**
-     * @var Logger
-     */
-    private $logger;
+    private ?string $applicationMethod = null;
 
-    /**
-     * @var Profiler
-     */
-    private $profiler;
+    private ?Cli $commando = null;
 
-    /**
-     * @var ResponseFormatter
-     */
-    private $responseFormatter;
+    private ?Request $httpRequest = null;
 
-    /**
-     * @var array
-     */
-    private $routerOptions;
+    private array $routerOptions = [];
 
     public function __construct($headerAccept = null)
     {
@@ -69,22 +42,22 @@ abstract class RunnerAbstract implements RunnerInterface
             ?: new HeaderAccept();
     }
 
-    public function getApplication()
+    public function getApplication() : ?Application
     {
         return $this->application;
     }
 
-    public function getApplicationMethod()
+    public function getApplicationMethod() : ?string
     {
         return $this->applicationMethod;
     }
 
-    public function getApplicationModule()
+    public function getApplicationModule() : string
     {
         return ucwords($this->routerOptions['module']);
     }
 
-    public function getApplicationParams()
+    public function getApplicationParams() : array
     {
         return $this->getHttpRequest()->isCli()
             ? json_decode($this->commando->value('params'), true)
@@ -128,7 +101,7 @@ abstract class RunnerAbstract implements RunnerInterface
         return $this;
     }
 
-    public final function run() : void
+    final public function run() : void
     {
         $this->route();
         $this->parseApplicationMethod();
@@ -161,7 +134,7 @@ abstract class RunnerAbstract implements RunnerInterface
             $this->application->getResponse());
     }
 
-    private function getReqParams()
+    private function getReqParams() : array
     {
         $params = $this->getHttpRequest()->getParams();
         if(isset($this->routerOptions['url_part']) && is_array($params)){

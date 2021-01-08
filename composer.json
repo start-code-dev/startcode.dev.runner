@@ -42,6 +42,7 @@
         "startcode/http"        : "dev-main",
         "startcode/profiler"    : "dev-main",
         "startcode/value-object": "dev-main",
+        "startcode/commando"    : "1.*",
         "twig/twig"             : "1.*",
         "twig/extensions"       : "^1.2"
     },
@@ -49,6 +50,7 @@
         {"type": "git", "url": "https://github.com/start-code-dev/startcode.dev.clean-core.git"},
         {"type": "git", "url": "https://github.com/start-code-dev/startcode.dev.http.git"},
         {"type": "git", "url": "https://github.com/start-code-dev/startcode.dev.profiler.git"},
-        {"type": "git", "url": "https://github.com/start-code-dev/startcode.dev.value-object.git"}
+        {"type": "git", "url": "https://github.com/start-code-dev/startcode.dev.value-object.git"},
+        {"type": "git", "url": "https://github.com/start-code-dev/startcode.dev.commando.git"}
     ]
 }

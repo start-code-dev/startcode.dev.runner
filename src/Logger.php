@@ -3,7 +3,7 @@
 namespace Startcode\Runner;
 
 use Startcode\CleanCore\Application;
-use LogLogger;
+use Logger as LogLogger;
 use Startcode\Profiler\Data\Request as ProfilerDataRequest;
 use Startcode\Profiler\Data\Response as ProfilerDataResponse;
 
