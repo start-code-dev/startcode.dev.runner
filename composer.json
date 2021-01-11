@@ -42,7 +42,6 @@
         "startcode/http"        : "1.*",
         "startcode/logger"      : "1.*",
         "startcode/profiler"    : "1.*",
-        "startcode/value-object": "1.*",
         "startcode/commando"    : "1.*",
         "twig/twig"             : "1.*",
         "twig/extensions"       : "^1.2"
@@ -54,5 +53,10 @@
         {"type": "git", "url": "https://github.com/start-code-dev/startcode.dev.profiler.git"},
         {"type": "git", "url": "https://github.com/start-code-dev/startcode.dev.value-object.git"},
         {"type": "git", "url": "https://github.com/start-code-dev/startcode.dev.commando.git"}
-    ]
+    ],
+    "config": {
+        "github-oauth": {
+            "github.com": "9b1c469fec06e89a4ff50917acedae8bf2b477d6"
+        }
+    }
 }
